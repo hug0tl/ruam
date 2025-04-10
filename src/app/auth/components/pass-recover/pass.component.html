@@ -1,0 +1,74 @@
+  <!-- <div class="recovery-card">
+    <h2>Recuperar Contraseña</h2>
+    <p>Ingresa tu correo electrónico para recuperar tu contraseña</p>
+
+    <form
+      [formGroup]="recoveryForm"
+      (ngSubmit)="onSubmit()"
+      class="recovery-form"
+    >
+    <form (ngSubmit)="onSubmit()" class="recovery-form">
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <div class="input-container">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="correo@ejemplo.com"
+            [class.is-invalid]="submitted && f['email'].errors"
+          />
+        </div>
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">
+            El correo es requerido
+          </div>
+          <div *ngIf="f['email'].errors['email']">Ingrese un correo válido</div>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+      </div>
+
+      <button type="submit" class="recovery-button" [disabled]="submitted">
+        <span *ngIf="!submitted">Enviar</span>
+        <span *ngIf="submitted">
+          <i class="fas fa-spinner fa-spin"></i> Enviando...
+        </span>
+      </button>
+    </form>
+
+    <div class="additional-actions">
+      <a routerLink="/login" class="back-to-login"
+        >Volver al Inicio de Sesión</a
+      >
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="panel">
+        <div class="upper-section">
+          <div class="login-icon"></div>
+          <h2>Ingrese email</h2>
+          <!-- <p>Ingresa tu correo electrónico para recuperar tu contraseña</p> -->
+          <div class="form-container">
+            <div class="form-group">
+              <input type="email" placeholder="Email" />
+            </div>
+            <button class="recovery-button">Enviar</button> 
+          </div>
+        </div>
+        <div class="curve"></div>
+        <div class="bottom-section">
+            <!-- <a roterLink="recover-password" class="login-link">Volver al inicio de sesión</a> -->
+            <button (click)="navigateToLogin()" class="login-link">Volver al inicio de sesión</button>
+        </div>
+      </div>
+  </div>

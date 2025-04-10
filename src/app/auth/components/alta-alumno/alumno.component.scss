@@ -1,0 +1,129 @@
+.registration-card {
+  width: 100%;
+  // max-width: 400px;
+  width: 500px;
+  background-image: url("../../../../assets/background-forms.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #f5a623, #f8e0c5);
+    // background-color: linear-gradient(90deg, var(--background-color), #f8e0c5);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5a623;
+    margin-bottom: 10px;
+  }
+
+  // h2 {
+  //   font-size: 22px;
+  //   color: #333;
+  //   margin: 0;
+  // }
+}
+.image-icon {
+  background-image: url("../../../../assets/ruam-logo.png");
+  background-repeat: no-repeat; /* Asegúrate de que no se repita la imagen */
+  background-size: contain; /* Cambiado a cover para llenar el contenedor */
+  background-position: center;
+  width: 120px;
+  height: 120px; /* NECESARIO */
+  margin: 0 auto 30px auto;
+  animation: fadeIn 1s ease;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    // border-color: #f5a623;
+    border-color: var(--orange-uam);
+  }
+}
+
+.password-requirements {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #666;
+
+  .requirements-title {
+    margin-bottom: 5px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+
+      .check-icon {
+        color: #7abf7b;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--orange-color);
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  // transition: background-color 0.3s;
+
+  &.btn-photo, &:hover, &.btn-submit {
+    color: white;
+
+    &:hover {
+      background-color: var(--orange-hover);
+      // background-color: darken(#f5a623, 10%);
+    }
+  }
+}

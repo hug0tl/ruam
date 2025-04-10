@@ -1,0 +1,78 @@
+    <div class="search-container">
+      <!-- Filtros -->
+      <div class="filters-container">
+        <div class="filter-group">
+          <div class="filter-item">
+            <label>Filtrar por ID:</label>
+            <input type="text" placeholder="Buscar ID..." [(ngModel)]="filtroId">
+          </div>
+          <div class="filter-item">
+            <label>Filtrar por Estado:</label>
+            <select [(ngModel)]="filtroEstado">
+              <option value="">Todos</option>
+              <option>Completado</option>
+              <option>Cancelado</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Filtrar por Tipo:</label>
+            <select [(ngModel)]="filtroTipo">
+              <option value="">Todos</option>
+              <option>URVAN</option>
+              <option>RTP</option>
+              <option>Micro</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>&nbsp;</label>
+            <button class="form-button warning" 
+                    type="button" 
+                    (click)="limpiarFiltros()">
+              Limpiar Filtros
+            </button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Tabla de resultados -->
+      <div class="results-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Conductor</th>
+              <th>Hora Entrada</th>
+              <th>Hora Salida</th>
+              <!-- <th>Fecha</th> -->
+              <th>Pasajeros</th>
+              <th>Estado</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let viaje of filteredCharacters">
+              <td>{{ viaje.id }}</td>
+              <td>{{ viaje.nombre }}</td>
+              <td>{{ viaje.horaEntrada }}</td>
+              <td>{{ viaje.horaSalida }}</td>
+              <!-- <td>{{ viaje.fechaNacimiento }}</td> -->
+              <td>{{ viaje.noPasajeros }}</td>
+              <!-- <td>
+                <span class="status-badge" [ngClass]="{
+                  'approved': viaje.estado === 'Completado',
+                  'cancel': viaje.estado === 'Cancelado'
+                }">{{ viaje.estado }}</span>
+              </td> -->
+              <td>{{viaje.estado}}</td>
+              <td>{{ viaje.tipo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="form-actions">
+        <button class="form-button success">
+          Imprimir
+        </button>
+      </div>
+    </div>

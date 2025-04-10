@@ -1,0 +1,27 @@
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Lado izquierdo: formulario -->
+      <div class="left-panel">
+        <div class="upper-section">
+          <div class="login-icon"></div>
+          <div class="form-container">
+            <div class="form-group">
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" />
+            </div>
+            <button (click)="navigateToAdmin()" class="signup-btn">Iniciar Sesión</button>
+          </div>
+        </div>
+        <div class="curve"></div>
+        <div class="bottom-section">
+            <a (click)="navigateToAltaAlumno()" class="login-link">Registrarse</a>
+          <a (click)="navigateToRecoverPassword()" class="login-link">Olvide mi contraseña</a>
+        </div>
+      </div>
+
+      <!-- Lado derecho: imagen decorativa -->
+      <div class="right-panel"></div>
+    </div>
+  </div>

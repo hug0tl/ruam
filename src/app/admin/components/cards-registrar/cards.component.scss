@@ -1,0 +1,138 @@
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  // width: 100%;
+}
+
+.boxing-cards{
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.boxing-card {
+  cursor: pointer;
+  border-radius: 50px;
+  width: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.boxing-card:hover {
+  transform: translateY(-5px); /* Elevación al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  height: 380px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--orange-hover);
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    transition: box-shadow 0.3s ease;
+  // height: 380px;
+  // position: relative;
+  // overflow: hidden;
+  // background-size: cover;
+  // background-position: center;
+  // background-color: var(--orange-hover);
+  // display: flex;
+  // justify-content: center; /* Centrado horizontal */
+  // align-items: center; /* Centrado vertical */
+  // transition: box-shadow 0.3s ease;
+}
+#card-l:hover{
+  background-color:  rgba(58, 134, 71, 0.5);
+}
+#card-r:hover{
+  background-color:  rgba(175, 68, 68, 0.5);
+}
+.card-image-l {
+  height: 150px;
+    width: 150px; /* Altura fija para contenedor */
+    object-fit: contain; /* Mantiene proporciones de la imagen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agregar transición para box-shadow */
+    background-image: url("./img/check.png");
+    background-position: center;
+    background-size: cover;
+    padding: 40px 30px;
+    position: relative;
+    text-align: center;
+  // height: 150px;
+  // width: 150px; /* Altura fija para contenedor */
+  // object-fit: contain; /* Mantiene proporciones de la imagen */
+  // transition: transform 0.3s ease;
+  // background-image: url("./img/check.png");
+  // background-position: center;
+  // background-size: cover;
+  // padding: 40px 30px;
+  // position: relative;
+  // text-align: center;
+}
+
+.card-image-r {
+  height: 150px;
+  width: 150px; /* Altura fija para contenedor */
+  object-fit: contain; /* Mantiene proporciones de la imagen */
+  transition: transform 0.3s ease;
+  background-image: url("./img/cancelar.png");
+  background-position: center;
+  background-size: cover;
+  padding: 40px 30px;
+  position: relative;
+  text-align: center;
+}
+
+.date-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.date-day {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date-month,
+.date-year {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.card-author {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 10px 0;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.4;
+}

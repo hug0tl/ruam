@@ -1,0 +1,175 @@
+.sidebar {
+  width: 205px;
+  background-color: var(--orange-color);
+  color: white;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-title {
+  height: 60px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+  background-image: url("../../../../assets/logo-ruam.png");
+  background-size: cover;
+}
+
+.sidebar-menu {
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 25px 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: var(--orange-hover);
+  color: white;
+}
+
+.menu-item i {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+.log-out {
+  padding: 15px;
+  margin: 15px;
+  // border: 1px solid #ff6347;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+  // transition: background-color 0.2s;
+  background-color: var(--orange-color);
+}
+
+.log-out:hover {
+  background-color: var(--orange-hover);
+}
+
+// ------------
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-color-light);
+}
+
+/* Nuevos estilos */
+.search-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.code-form .form-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.form-button {
+  width: 20%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: var(--background-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.form-button:hover {
+  background: var(--background-hover);
+}
+
+.code-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.results-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+}
+
+.results-table th,
+.results-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.results-table th {
+  background-color: var(--background-color);
+  color: white;
+  font-weight: 500;
+}
+
+.results-table tr:hover {
+  background-color: #fff5eb;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+.status-badge.pending {
+  background-color: #ffe08a;
+  color: #946c00;
+}
+
+.status-badge.approved {
+  background-color: #c8e6c9;
+  color: #256029;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form-button.success {
+  background-color: var(--green-color);
+  color: white;
+  margin-top: 20px;
+}
+.form-button.success:hover {
+  background-color: #388e3c;
+}
+
+/* Mantener responsividad */
+// @media (max-width: 768px) {
+//   .code-form .form-group {
+//     flex-direction: column;
+//   }
+
+//   .results-table table {
+//     display: block;
+//     overflow-x: auto;
+//   }
+// }

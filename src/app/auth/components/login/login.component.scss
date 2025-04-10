@@ -1,0 +1,139 @@
+.container {
+  width: 800px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.upper-section {
+  //background-color: #89b0b9;
+  background-image: url("../../../../assets/background-forms.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 40px 30px;
+  position: relative;
+  text-align: center;
+}
+
+.upper-section h1 {
+  color: var(--orange-color);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 80px;
+}
+
+.login-icon {
+  background-image: url("../../../../assets/ruam-logo.png");
+  background-repeat: no-repeat; /* Asegúrate de que no se repita la imagen */
+  background-size: contain; /* Cambiado a cover para llenar el contenedor */
+  background-position: center;
+  width: 120px;
+  height: 120px; /* NECESARIO */
+  margin: 0 auto 30px auto;
+  animation: fadeIn 1s ease;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: -10px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--orange-color);
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--orange-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: var(--orange-hover);
+}
+
+.bottom-section {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  display: grid;
+}
+
+.login-link {
+  color: var(--orange-color);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 0;
+}
+.login-link:hover {
+  color: var(--orange-hover);
+}
+
+.bottom-section span {
+  color: var(--orange-color);
+}
+
+.curve {
+  height: 30px;
+  background-color: white;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  margin-top: -25px;
+  position: relative;
+}
+
+/* Envolver formulario e imagen */
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/* Panel izquierdo (formulario) */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Panel derecho (imagen) */
+.right-panel {
+  flex: 1;
+  background-color: #fff;
+  // background-image: url("/src/assets/ruam_splash.gif");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding: 20px;
+  max-width: 100%;
+  background-image: url("../../../../assets/ruam_splash.gif");
+  background-position: center;
+  background-size: contain;
+}
+
+.right-panel img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0 20px 20px 0;
+}

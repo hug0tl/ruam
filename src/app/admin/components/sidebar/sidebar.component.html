@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="app-title"></div>
+  <nav class="sidebar-menu">
+    <a (click)="navigateToRegistrar()" class="menu-item">
+      <i class="fas fa-th-large"></i>
+      <span>Registrar Vehiculos</span>
+    </a>
+    <a (click)="navigateToRegistrar()" class="menu-item">
+      <i class="fas fa-link"></i>
+      <span>Reportar Falla</span>
+    </a>
+    <a (click)="navigateToViajes()" class="menu-item">
+      <i class="fas fa-eye"></i>
+      <span>Registro De Viajes</span>
+    </a>
+    <a (click)="navigateToCuentas()" class="menu-item">
+      <i class="fas fa-eye"></i>
+      <span>Administrar Cuentas</span>
+    </a>
+    <a (click)="navigateToAltasCuentas()" class="menu-item">
+      <i class="fas fa-eye"></i>
+      <span>Dar De Alta</span>
+    </a>
+  </nav>
+  <button (click)="cerrarSesion()" class="log-out">Log Out</button>
+</div>

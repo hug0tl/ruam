@@ -1,0 +1,69 @@
+<div class="registration-card">
+  <div class="header">
+<div
+  class="image-icon"
+  [ngStyle]="{
+    'background-image': selectedImage
+      ? 'url('+selectedImage+')' 
+      : 'url('+chofer?.fotoPerfil+')'
+  }"
+></div>
+  </div>
+
+  <!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="nombreCompleto"
+        placeholder="Nombre completo"
+        class="form-control"
+        value="{{chofer?.nombre}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="date"
+        formControlName="fechaNacimiento"
+        class="form-control date-input"
+        #datePicker
+        value="{{chofer?.fechaNacimiento}}"
+      />
+      <button
+        type="button"
+        class="calendar-icon"
+        (click)="openDatePicker(datePicker)"
+      ></button>
+    </div>
+
+    <div class="form-group">
+      <select formControlName="tipoUsuario" class="form-control" >
+        <option value="" disabled >Seleccione tipo de usuario</option>
+        <option value="conductor">RTP</option>
+        <option value="pasajero">URVAN</option>
+        <option value="admin">COMBI</option>
+      </select>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="button"
+        class="btn btn-photo"
+        (click)="fileInput.click()"
+      >
+        Seleccionar foto de perfil
+      </button>
+      <button type="submit" class="btn btn-submit">Guardar</button>
+      <button (click)="backTo()" class="btn btn-submit">Volver</button>
+    </div>
+    <!-- input oculto -->
+    <input
+      type="file"
+      #fileInput
+      (change)="selectProfilePhoto($event)"
+      accept="image/*"
+      hidden
+    />
+  </form>
+</div>

@@ -1,0 +1,55 @@
+    <div class="search-container">
+      <form class="code-form" (ngSubmit)="agregarEntrada()">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Ingrese el código del conductor"
+            [(ngModel)]="codigoConductor"
+            name="codigoConductor"
+            required
+          />
+          <button type="submit" class="form-button primary">
+            Ingresar
+          </button>
+        </div>
+      </form>
+    
+      <!-- Tabla de resultados -->
+      <div class="results-table">
+        <table>
+          <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>ID</th>
+              <th>Conductor</th>
+              <th>Hora Entrada</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let entrada of entradas; index as i"> -->
+            <tr *ngFor="let entrada of entradas;">
+              <!-- <td>{{ i + 1 }}</td> -->
+              <td>{{ entrada.codigo }}</td>
+              <td>{{ entrada.codigo }}</td> <!-- Deberías tener un nombre del conductor -->
+              <td>{{ entrada.hora }}</td>
+              <td>{{ entrada.fecha }}</td>
+              <td>
+                <span class="status-badge pending">Pendiente</span>
+              </td>
+              <td>RTP</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <!-- Botón de aceptar -->
+      <div class="form-actions">
+        <button (click)="navigateToRegistrar()" class="form-button success">
+          Volver
+        </button>
+      </div>
+    </div>

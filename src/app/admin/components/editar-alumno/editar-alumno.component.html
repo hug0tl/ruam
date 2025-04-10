@@ -1,0 +1,96 @@
+<div class="registration-card">
+  <div class="header">
+    <div
+  class="image-icon"
+  [ngStyle]="{
+    'background-image': selectedImage
+      ? 'url('+selectedImage+')' 
+      : 'url('+alumno?.fotoPerfil+')'
+  }"
+></div>
+  </div>
+
+  <!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group" *ngIf="alumno">
+      <input
+        type="text"
+        formControlName="nombreCompleto"
+        placeholder="Nombre completo"
+        class="form-control"
+        value="{{alumno.nombre}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="matricula"
+        placeholder="Matrícula"
+        class="form-control"
+        value="{{alumno?.matricula}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="email"
+        formControlName="correoElectronico"
+        placeholder="Correo electrónico"
+        class="form-control"
+        value="{{alumno?.correoElectronico}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="contrasena"
+        placeholder="Contraseña"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="confirmarContrasena"
+        placeholder="Confirmar contraseña"
+        class="form-control"
+        value=""
+      />
+    </div>
+
+    <div class="password-requirements">
+      <div class="requirements-title">
+        La contraseña debe cumplir lo siguiente:
+      </div>
+      <ul>
+        <li><span class="check-icon">✓</span> mínimo una mayúscula</li>
+        <li><span class="check-icon">✓</span> mínimo un caracter especial</li>
+        <li><span class="check-icon">✓</span> mínimo 8 caracteres</li>
+        <li><span class="check-icon">✓</span> mínimo un número</li>
+      </ul>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="button"
+        class="btn btn-photo"
+        (click)="fileInput.click()"
+      >
+        Seleccionar foto de perfil
+      </button>
+      <button type="submit" class="btn btn-submit">Guardar</button>
+      <button (click)="backTo()" class="btn btn-submit">Volver</button>
+    </div>
+    <!-- input oculto -->
+    <input
+      type="file"
+      #fileInput
+      (change)="selectProfilePhoto($event)"
+      accept="image/*"
+      hidden
+    />
+  </form>
+</div>
