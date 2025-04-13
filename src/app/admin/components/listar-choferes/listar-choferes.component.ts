@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class ListarChoferesComponent {
   filtroId= '';
+  currentPage = 1;
+  itemsPerPage = 6;
+
   constructor(private router:Router){}
 
   public alumnos: Chofer[] = [
@@ -103,5 +106,19 @@ export class ListarChoferesComponent {
   }
   return(){
     this.router.navigateByUrl('admin/administrar-cuentas');
+  }
+  get datos(){
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filtroID.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.filtroID.length / this.itemsPerPage);
+  }
+
+  cambiarPaginacion(direccion: number) {
+    this.currentPage += direccion;
+    if (this.currentPage < 1) this.currentPage = 1;
+    if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
   }
 }

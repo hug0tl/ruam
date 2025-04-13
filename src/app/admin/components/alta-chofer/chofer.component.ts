@@ -35,7 +35,6 @@ export class ChoferAltaComponent {
 
   selectProfilePhoto(event: Event): void {
     const input = event.target as HTMLInputElement;
-  // biome-ignore lint/complexity/useOptionalChain: <explanation>
   if (input.files && input.files[0]) {
     const file = input.files[0];
     const reader = new FileReader();

@@ -1,11 +1,17 @@
-<div class="main-layout">
+  <div class="main-layout">
     <!-- Componente 1: Sidebar -->
     <adm-sidebar></adm-sidebar>
   
     <!-- Componente 2: Contenido principal -->
     <div class="dashboard-content">
-      <!-- <dashboard></dashboard> -->
-       
-       <router-outlet></router-outlet>
+      <!-- Parte superior: Navbar -->
+      <div class="navbar-container">
+        <top-navbar></top-navbar>
+      </div>
+  
+      <!-- Parte inferior: Contenido dinámico -->
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>

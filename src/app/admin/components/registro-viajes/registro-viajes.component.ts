@@ -13,6 +13,9 @@ export class RegistroViajesComponent {
   filtroId= '';
   filtroEstado = '';
   filtroTipo = '';
+  currentPage = 1;
+  itemsPerPage = 6;
+
 
   public characters: RegistroViaje[] = [
     {
@@ -117,7 +120,7 @@ export class RegistroViajesComponent {
     }
   ]
   
-  get filteredCharacters(): RegistroViaje[] {
+  get filtrarViajes(): RegistroViaje[] {
     return this.characters.filter(viaje => {
       const matchId = viaje.id.toLowerCase().includes(this.filtroId.toLowerCase());
       const matchEstado = !this.filtroEstado || viaje.estado === this.filtroEstado;
@@ -131,5 +134,20 @@ export class RegistroViajesComponent {
     this.filtroId = '';
     this.filtroEstado = '';
     this.filtroTipo = '';
+  }
+
+  get datos(){
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filtrarViajes.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.filtrarViajes.length / this.itemsPerPage);
+  }
+
+  cambiarPaginacion(direccion: number) {
+    this.currentPage += direccion;
+    if (this.currentPage < 1) this.currentPage = 1;
+    if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
   }
 }

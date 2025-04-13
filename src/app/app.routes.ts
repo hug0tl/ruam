@@ -35,60 +35,59 @@ export const routes: Routes = [
       { 
         path: '', 
         redirectTo: 'registrar', 
-        pathMatch: 'full' 
+        pathMatch: 'full', 
       }, {
         path: 'registrar',
-        component: CardsComponent
+        component: CardsComponent,
+        data: { title: 'Registro de Viajes' }
       },{
           path: 'registrar-entrada',
-          component: RegistrarEntrada
+          component: RegistrarEntrada,
+          data: { title: 'Ingresar Viaje' }
         },
       {
         path: 'reportar',
-        component: CardsComponent
+        component: CardsComponent,
+        data: { title: 'Reportar Falla' }
       }, {
         path: 'viajes',
-        component: RegistroViajesComponent
+        component: RegistroViajesComponent,
+        data: { title: 'Listar Viajes' }
       }, {
         path: 'administrar-cuentas',
-        component: CardsCuentasComponent
+        component: CardsCuentasComponent,
+        data: { title: 'Administrar Cuentas' }
       },{
           path: 'listar-alumnos',
-          component: ListarAlumnosComponent
+          component: ListarAlumnosComponent,
+          data: { title: 'Listar Alumnos' }
         },{
             path:'editar-alumno',
-            component: EditarAlumno
+            component: EditarAlumno,
+            data: { title: 'Editar Alumno' }
             },
         {
           path:'listar-choferes',
-          component: ListarChoferesComponent
+          component: ListarChoferesComponent,
+          data: { title: 'Listar Choferes' }
         },{
             path:'editar-chofer',
-            component: EditarChoferComponent
+            component: EditarChoferComponent,
+            data: { title: 'Editar Chofer' }
           },
       {
         path: 'alta-cuentas',
-        component: CardsCuentasComponent
+        component: CardsCuentasComponent,
+        data: { title: 'Dar de alta' }
       },{
           path: 'alta-alumno',
-          component: AltaAlumno
+          component: AltaAlumno,
+          data: { title: 'Ingresar nuevo alumno' }
       },{
           path: 'alta-chofer',
-          component: ChoferAltaComponent
+          component: ChoferAltaComponent,
+          data: { title: 'Ingresar nuevo chofer' }
         },
-
-      // {
-      //   path: 'listar',
-      //   // component: CardsComponent
-      // },
-      // {
-      //   path: 'cuentas',
-      //   // component: AdminConfiguracionComponent
-      // },
-      // {
-      //   path: 'usuarios', 
-      //   // component: AdminUsuariosComponent
-      // }
     ]
   }
 

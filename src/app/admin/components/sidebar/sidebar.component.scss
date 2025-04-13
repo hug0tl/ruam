@@ -1,6 +1,8 @@
 .sidebar {
   width: 205px;
-  background-color: var(--orange-color);
+  // background-color: var(--orange-color);
+  background-color: #ff6f4a;
+  // background: linear-gradient(to left, var(--orange-color), var(--orange-uam));
   color: white;
   flex-shrink: 0;
   display: flex;
@@ -56,6 +58,13 @@
 
 .log-out:hover {
   background-color: var(--orange-hover);
+}
+
+.ruam-logo {
+  height: 90px;
+  width: 90px;
+  background-image: url("../../../../assets/ruam_logo.png");
+  background-size: cover;
 }
 
 // ------------

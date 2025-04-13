@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class ListarAlumnosComponent {
   filtroMatricula= '';
+  currentPage = 1;
+  itemsPerPage = 6;
+
   constructor(private router:Router){}
 
   public alumnos: Alumno[] = [
@@ -94,5 +97,19 @@ export class ListarAlumnosComponent {
   }
   return(){
     this.router.navigateByUrl('admin/administrar-cuentas');
+  }
+  get datos(){
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filtroMatriculas.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.filtroMatriculas.length / this.itemsPerPage);
+  }
+
+  cambiarPaginacion(direccion: number) {
+    this.currentPage += direccion;
+    if (this.currentPage < 1) this.currentPage = 1;
+    if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
   }
 }
