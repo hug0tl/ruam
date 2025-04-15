@@ -40,7 +40,6 @@ export class EditarChoferComponent {
 
   selectProfilePhoto(event: Event): void {
     const input = event.target as HTMLInputElement;
-  // biome-ignore lint/complexity/useOptionalChain: <explanation>
   if (input.files && input.files[0]) {
     const file = input.files[0];
     const reader = new FileReader();
@@ -53,7 +52,6 @@ export class EditarChoferComponent {
   }
   }
 
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   openDatePicker(datePicker: any) {
     datePicker.showPicker();
   }
@@ -61,14 +59,11 @@ export class EditarChoferComponent {
   // Listar
   toggleOptions(): void {
     this.showOptions = !this.showOptions;
-     // Alternar la visibilidad de las opciones
   }
 
   selectRoute(route: string): void {
     this.choferForm.patchValue({ ruta: route }); 
-    // Establecer el valor del campo de entrada
     this.showOptions = false; 
-    // Ocultar las opciones después de seleccionar
   }
   backTo(){
     this.router.navigateByUrl('/admin/listar-choferes');

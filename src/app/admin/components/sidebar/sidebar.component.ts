@@ -17,7 +17,6 @@ export class SidebarComponent {
     this.router.navigateByUrl('/reportar');
   }
   navigateToAltasCuentas(){
-    console.log("hola");
     this.router.navigateByUrl('/admin/alta-cuentas');
   }
   navigateToViajes(){

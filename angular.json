@@ -57,7 +57,13 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment-example.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -74,7 +80,8 @@
               "buildTarget": "ruam:build:production"
             },
             "development": {
-              "buildTarget": "ruam:build:development"
+              "buildTarget": "ruam:build:development",
+              "proxyConfig": "src/proxy.conf.json "
             }
           },
           "defaultConfiguration": "development"

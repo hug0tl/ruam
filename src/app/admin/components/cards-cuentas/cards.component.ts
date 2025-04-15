@@ -35,11 +35,13 @@ export class CardsCuentasComponent {
   }
 
   navigateToChofer(){
+    console.log('navigateToChofer');
     const currentUrl = this.router.url;
     if (currentUrl.includes('/admin/administrar-cuentas')) {
       this.router.navigateByUrl('/admin/listar-choferes');
     } else if (currentUrl.includes('/admin/alta-cuentas')) {
       this.router.navigateByUrl('/admin/alta-chofer');
+      console.log('entro');
     }
   }
 }

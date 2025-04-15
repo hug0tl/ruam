@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./listar-alumnos.component.scss'],
   imports:[CommonModule, FormsModule]
 })
-export class ListarAlumnosComponent {
+export class ListaAlumnosComponent {
   filtroMatricula= '';
   currentPage = 1;
   itemsPerPage = 6;

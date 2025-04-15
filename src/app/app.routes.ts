@@ -8,10 +8,10 @@ import { RegistrarEntrada } from './admin/components/registrar-entrada/entrada.c
 import { CardsCuentasComponent } from './admin/components/cards-cuentas/cards.component';
 import { RegistroViajesComponent } from './admin/components/registro-viajes/registro-viajes.component';
 import { ChoferAltaComponent } from './admin/components/alta-chofer/chofer.component';
-import { ListarAlumnosComponent } from './admin/components/listar-alumnos/listar-alumnos.component';
-import { ListarChoferesComponent } from './admin/components/listar-choferes/listar-choferes.component';
+import { ListaChoferesComponent } from './admin/components/listar-choferes/listar-choferes.component';
 import { EditarAlumno } from './admin/components/editar-alumno/editar-alumno.component';
 import { EditarChoferComponent } from './admin/components/editar-chofer/editar-chofer.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -31,12 +31,18 @@ export const routes: Routes = [
   },{
     path: 'admin',
     component: HomeAdmComponent,
+    canActivate: [AuthGuard], 
     children: [
       { 
         path: '', 
         redirectTo: 'registrar', 
+<<<<<<< Updated upstream
         pathMatch: 'full', 
       }, {
+=======
+        pathMatch: 'full' 
+      },{
+>>>>>>> Stashed changes
         path: 'registrar',
         component: CardsComponent,
         data: { title: 'Registro de Viajes' }
@@ -59,8 +65,12 @@ export const routes: Routes = [
         data: { title: 'Administrar Cuentas' }
       },{
           path: 'listar-alumnos',
+<<<<<<< Updated upstream
           component: ListarAlumnosComponent,
           data: { title: 'Listar Alumnos' }
+=======
+          component: ListaChoferesComponent
+>>>>>>> Stashed changes
         },{
             path:'editar-alumno',
             component: EditarAlumno,
@@ -68,8 +78,12 @@ export const routes: Routes = [
             },
         {
           path:'listar-choferes',
+<<<<<<< Updated upstream
           component: ListarChoferesComponent,
           data: { title: 'Listar Choferes' }
+=======
+          component: ListaChoferesComponent
+>>>>>>> Stashed changes
         },{
             path:'editar-chofer',
             component: EditarChoferComponent,
@@ -89,7 +103,9 @@ export const routes: Routes = [
           data: { title: 'Ingresar nuevo chofer' }
         },
     ]
-  }
+  }, {
+    path: '**', redirectTo: 'login' 
+  }, 
 
 
 ];

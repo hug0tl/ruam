@@ -1,112 +1,91 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import type { Chofer } from '../../interfaces/chofer.interface';
-import { Router } from '@angular/router';
+import { FirestoreDataService } from '../../../auth/services/firestore.service';
+import { catchError, finalize, Observable, of } from 'rxjs';
+import { UsuariosApiService } from '../../../auth/services/usuarios-api.service';
+
 
 @Component({
-  selector: 'adm-registro-entrada',
+  selector: 'app-lista-choferes',
   templateUrl: './listar-choferes.component.html',
   styleUrls: ['./listar-choferes.component.scss'],
-  imports:[CommonModule, FormsModule]
+  standalone: true,
+  imports: [CommonModule, FormsModule]
 })
+<<<<<<< Updated upstream
 export class ListarChoferesComponent {
   filtroId= '';
   currentPage = 1;
   itemsPerPage = 6;
 
   constructor(private router:Router){}
+=======
+export class ListaChoferesComponent implements OnInit {
+  usuarios$: Observable<Usuario[]> | undefined;
+  usuarios: Usuario[] = [];
+  usuariosFiltrados: Usuario[] = []; // Array para almacenar los usuarios filtrados
+  filtroId = '';
+  isLoading = false;
+  errorMessage = '';
+>>>>>>> Stashed changes
 
-  public alumnos: Chofer[] = [
-    {
-      "id": "UVN-2025-001",
-      "nombre": "Carlos Mendoza",
-      "fechaNacimiento": "1990-05-15",
-      "tipo": "URVAN",
-      "fotoPerfil": "https://example.com/fotos/carlos_mendoza.jpg"
-    },
-    {
-      "id": "RTP-2025-002",
-      "nombre": "Laura Vargas",
-      "fechaNacimiento": "1985-12-20",
-      "tipo": "RTP",
-      "fotoPerfil": "https://example.com/fotos/laura_vargas.png"
-    },
-    {
-      "id": "MCR-2025-003",
-      "nombre": "Pedro Gómez",
-      "fechaNacimiento": "1998-03-10",
-      "tipo": "Micro",
-      "fotoPerfil": "https://example.com/fotos/pedro_gomez.jpeg"
-    },
-    {
-      "id": "UVN-2025-004",
-      "nombre": "Sofía Ruiz",
-      "fechaNacimiento": "1992-08-01",
-      "tipo": "URVAN",
-      "fotoPerfil": "https://example.com/fotos/sofia_ruiz.gif"
-    },
-    {
-      "id": "RTP-2025-005",
-      "nombre": "Javier Díaz",
-      "fechaNacimiento": "1988-11-25",
-      "tipo": "RTP",
-      "fotoPerfil": "https://example.com/fotos/javier_diaz.svg"
-    },
-    {
-      "id": "MCR-2025-006",
-      "nombre": "Ana Sánchez",
-      "fechaNacimiento": "1995-07-05",
-      "tipo": "Micro",
-      "fotoPerfil": "https://example.com/fotos/ana_sanchez.bmp"
-    },
-    {
-      "id": "UVN-2025-007",
-      "nombre": "Manuel Torres",
-      "fechaNacimiento": "1991-01-30",
-      "tipo": "URVAN",
-      "fotoPerfil": "https://example.com/fotos/manuel_torres.tiff"
-    },
-    {
-      "id": "RTP-2025-008",
-      "nombre": "Isabel Flores",
-      "fechaNacimiento": "1987-09-18",
-      "tipo": "RTP",
-      "fotoPerfil": "https://example.com/fotos/isabel_flores.webp"
-    },
-    {
-      "id": "MCR-2025-009",
-      "nombre": "Ricardo Castro",
-      "fechaNacimiento": "1999-04-12",
-      "tipo": "Micro",
-      "fotoPerfil": "https://example.com/fotos/ricardo_castro.heic"
-    },
-    {
-      "id": "UVN-2025-010",
-      "nombre": "Elena Jiménez",
-      "fechaNacimiento": "1993-06-22",
-      "tipo": "URVAN",
-      "fotoPerfil": "https://example.com/fotos/elena_jimenez.avif"
-    }
-  ]
+  constructor(
+    private router: Router,
+    private firestoreService: FirestoreDataService
+    // private router: Router,
+    // private usuariosApi: UsuariosApiService
+  ) {}
   
-  get filtroID(): Chofer[] {
-    const filtro = this.filtroId.trim().toLowerCase();
-    return this.alumnos.filter(alumno =>
-      alumno.id.toLowerCase().includes(filtro)
+  ngOnInit(): void {
+    this.cargarUsuarios();
+    // console.log('usuariosApi', this.usuariosApi);
+    
+  }
+
+  cargarUsuarios() {
+    this.usuarios$ = this.firestoreService.getChoferes().pipe(
+      catchError(error => {
+        console.error('Error:', error);
+        this.errorMessage = 'Error al cargar choferes';
+        return of([]);
+      }),
+      finalize(() => this.isLoading = false)
+    );
+    /*
+    this.usuariosApi.listarUsuarios()
+      .then(data => {
+        this.usuarios = data;
+        this.usuariosFiltrados = [...this.usuarios];
+        console.log('Usuarios cargados:', this.usuarios);
+      })
+      .catch(error => {
+        console.error('Error al cargar usuarios:', error);
+      });
+      */
+    }
+
+  filtrarUsuarios() {
+    if (!this.filtroId) {
+      this.usuariosFiltrados = [...this.usuarios]; // Si el filtro está vacío, muestra todos
+      return;
+    }
+    
+    this.usuariosFiltrados = this.usuarios.filter(usuario => 
+      usuario.uid && usuario.uid.toLowerCase().includes(this.filtroId.toLowerCase())
     );
   }
-  editarChofer(chofer: Chofer) {
-    this.router.navigate(['/admin/editar-chofer'], {
-      state: { chofer }
-    });
-  }
+
   limpiar() {
     this.filtroId = '';
+    this.usuariosFiltrados = [...this.usuarios];
   }
-  return(){
+
+  return() {
     this.router.navigateByUrl('admin/administrar-cuentas');
   }
+<<<<<<< Updated upstream
   get datos(){
     const start = (this.currentPage - 1) * this.itemsPerPage;
     return this.filtroID.slice(start, start + this.itemsPerPage);
@@ -122,3 +101,6 @@ export class ListarChoferesComponent {
     if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
   }
 }
+=======
+}
+>>>>>>> Stashed changes

@@ -1,9 +1,12 @@
 .container-main {
   background-color: var(--orange-color-light);
+<<<<<<< Updated upstream
   background: linear-gradient(to right, var(--orange-color), var(--orange-uam));
+=======
+  background-image: linear-gradient(to right, #FC7864, #FDA366);
+>>>>>>> Stashed changes
   display: flex;
   justify-content: center;
   align-items: center;
-  //   margin: 0 auto;
   height: 100vh;
 }

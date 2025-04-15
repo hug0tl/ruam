@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
     <div class="search-container">
       <!-- Filtros -->
       <div class="filters-container">
@@ -51,6 +52,67 @@
       <div class="form-actions">
         <button (click)="return()" class="form-button success">
           Volver
+=======
+<!-- listar-choferes.component.html -->
+<div class="search-container">
+  <!-- Filtros -->
+  <div class="filters-container">
+    <div class="filter-group">
+      <div class="filter-item">
+        <input type="text" placeholder="Buscar UID" [(ngModel)]="filtroId" class="form-input">
+      </div>
+
+      <div class="filter-item">
+        <button class="form-button warning" 
+                type="button" 
+                (click)="limpiar()">
+          Limpiar
+>>>>>>> Stashed changes
         </button>
       </div>
     </div>
+  </div>
+
+  <!-- Tabla de resultados -->
+  <div class="results-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Created At</th>
+          <th>Email</th>
+          <th>enrollmentId</th>
+          <th>EstadoID</th>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Tipo de Usuario</th>
+          <th>uid</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let usuario of usuariosFiltrados"></tr> -->
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.createdAt | date:'medium' }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.enrollmentId }}</td>
+          <td>{{ usuario.estadoId }}</td>
+          <td>
+            <img *ngIf="usuario.imagen" [src]="usuario.imagen" alt="Foto de perfil" width="50">
+            <span *ngIf="!usuario.imagen">Sin imagen</span>
+          </td>
+          <td>{{ usuario.nombre || usuario.nombreCompleto }}</td>
+          <td>{{ usuario.tipoUsuarioId }}</td>
+          <td>{{ usuario.uid }}</td>
+        </tr>
+        <tr *ngIf="usuariosFiltrados.length === 0">
+          <td colspan="8" class="no-results">No se encontraron resultados</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-actions">
+    <button (click)="return()" class="form-button success">
+      Volver
+    </button>
+  </div>
+</div>
